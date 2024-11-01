@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-
+import { useNavigate } from 'react-router-dom';
 const Login = () => {
   const [formData, setFormData] = useState({
     email: '',
     password: ''
   });
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     setFormData({
@@ -20,7 +21,8 @@ const Login = () => {
     try {
       const response = await axios.post('http://localhost:3001/login', formData);
       console.log(response.data);
-      alert('Login successful');
+      // Redirect to Budget Tracker on success
+      navigate('/budget');
     } catch (error) {
       console.error(error);
       alert('Error logging in');
@@ -30,7 +32,7 @@ const Login = () => {
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100">
       <div className="bg-white p-8 rounded-lg shadow-lg w-96">
-        <h1 className="text-2xl font-bold mb-6 text-center">Packify - Login</h1>
+        <h1 className="text-2xl font-bold mb-6 text-center">Winzo - Login</h1>
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
             <label className="block text-gray-700">Email</label>
