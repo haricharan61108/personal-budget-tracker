@@ -1,3 +1,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* In your global CSS file (e.g., index.css) */
+
+html, body {
+    overflow: hidden;
+  }
+  
+  .container {
+    max-width: 1200px;
+  }
+  
